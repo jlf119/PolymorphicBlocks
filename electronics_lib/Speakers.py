@@ -1,6 +1,10 @@
 from electronics_abstract_parts import *
 from .JlcPart import JlcPart
 
+class fe35jack(Block):
+    def __init__(self) -> None:
+        super().__init__()
+        self.sig = self.Port(AnalogSource.empty(), [Output])
 
 class Lm4871_Device(InternalSubcircuit, FootprintBlock):
   def __init__(self):
