@@ -4,6 +4,7 @@ from edg_core import *
 from electronics_model import *
 from electronics_abstract_parts import *
 from electronics_lib import *
+from products_model import *
 
 from .BoardTop import BoardTop, SimpleBoardTop, JlcBoardTop
 
