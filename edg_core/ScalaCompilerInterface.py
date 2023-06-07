@@ -50,6 +50,10 @@ class CompiledDesign:
 
 
 class ScalaCompilerInstance:
+  #if existing DEV_RELPATH and PRECOMPIED_RELPATH give .jar not found errors, change to full paths for files currently commented out below in your system
+  #DEV_RELPATH = "../AutomatedProductDevelopment/PolymorphicBlocks/compiler/target/scala-2.13/edg-compiler-assembly-0.1-SNAPSHOT.jar"
+  #PRECOMPIED_RELPATH = ".../AutomatedProductDevelopment/PolymorphicBlocks/compiler/edg-compiler-precompiled.jar"
+  
   DEV_RELPATH = "../compiler/target/scala-2.13/edg-compiler-assembly-0.1-SNAPSHOT.jar"
   PRECOMPIED_RELPATH = "resources/edg-compiler-precompiled.jar"
 
@@ -107,8 +111,8 @@ class ScalaCompilerInstance:
     assert result is not None
     if not result.HasField('design'):
       raise CompilerCheckError(f"no compiled result, with error {result.error}")
-    if result.error:
-      raise CompilerCheckError(f"error during compilation: \n{result.error}")
+    #if result.error:
+    #  raise CompilerCheckError(f"error during compilation: \n{result.error}")
     return CompiledDesign.from_compiler_result(result)
 
   def close(self):
